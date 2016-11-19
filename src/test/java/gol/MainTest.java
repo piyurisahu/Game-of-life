@@ -30,8 +30,7 @@ public class MainTest
     }
 
     @Test
-    public void aLiveCellWithOneNeighborDies()
-    {
+    public void aLiveCellWithOneNeighborDies() {
         //given
         Universe universe = new Universe();
         GolCell liveCell = new GolCell(true, 0, 0);
@@ -45,6 +44,24 @@ public class MainTest
         //than
         Assert.assertFalse(universe.cellAt(0, 0).isAlive());
         Assert.assertFalse(universe.cellAt(1, 0).isAlive());
+    }
+
+        @Test
+        public void aLiveCellWithOneNeighborDies2()
+        {
+            //given
+            Universe universe = new Universe();
+            GolCell liveCell = new GolCell(true, 0, 0);
+            GolCell neighborCell = new GolCell(true, 1, 0);
+            universe.add(liveCell);
+            universe.add(neighborCell);
+
+            //when
+            universe.nextIteration();
+
+            //than
+            Assert.assertFalse(universe.cellAt(0, 0).isAlive());
+            Assert.assertFalse(universe.cellAt(1, 0).isAlive());
 
     }
 }
